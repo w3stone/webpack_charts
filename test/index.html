@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/linq.min.js"></script>
+    <script src="./scripts/echarts.min.js"></script>
+    <script src="./scripts/china.js"></script>
+    <script src="./scripts/macarons.js"></script>
+    <script src="./scripts/data.js"></script>
+    <script src="./main.js"></script>
+
+</head>
+<body>
+    <div id="panel" style="width:800px;height:400px;"></div>
+
+</body>
+</html>
+
+<script>
+    var suCharts = new SuCharts(data, "panel", 101);
+    var option = suCharts.setOption();
+    console.log(suCharts);
+    console.log(option);
+
+    var echart = echarts.init(document.getElementById("panel"), "macarons"); //初始化echarts实例
+    echart.clear(); //清空
+
+    echart.setOption(option);
+    //屏幕大小改变
+    window.addEventListener("resize", function(){
+        echart.resize();
+    });
+
+    
+
+</script>
